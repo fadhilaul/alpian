@@ -91,7 +91,7 @@ function init() {
 
   // === ASTEROID BELT ===
   const loader = new THREE.TextureLoader();
-  const rockTexture = loader.load('textures/rock.png');
+  const rockTexture = loader.load('rock.png');
   for (let i = 0; i < 250; i++) {
     const size = Math.random() * 0.3 + 0.1;
     const geo = new THREE.IcosahedronGeometry(size, 0);
