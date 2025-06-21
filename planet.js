@@ -5,10 +5,10 @@ let planets = [];
 let pivotObjects = [];
 
 const planetData = [
-  { texture: 'textures/earth.jpg', name: 'planet1', image: 'teman1.jpg', quote: 'True friends are never apart, maybe in distance but never in heart.', radius: 5 },
-  { texture: 'textures/mars.jpg', name: 'planet2', image: 'teman2.jpg', quote: 'A friend is someone who knows all about you and still loves you.', radius: 7 },
-  { texture: 'textures/jupiter.jpg', name: 'planet3', image: 'teman3.jpg', quote: 'Friendship isn’t about who you’ve known the longest, it’s about who walked into your life and never left.', radius: 9 },
-  { texture: 'textures/venus.jpg', name: 'planet4', image: 'teman4.webp', quote: 'Good friends are like stars—you don’t always see them, but you know they’re always there.', radius: 11 }
+  { texture: 'earth.jpg', name: 'planet1', image: 'teman1.jpg', quote: 'True friends are never apart, maybe in distance but never in heart.', radius: 5 },
+  { texture: 'mars.jpg', name: 'planet2', image: 'teman2.jpg', quote: 'A friend is someone who knows all about you and still loves you.', radius: 7 },
+  { texture: 'jupiter.jpg', name: 'planet3', image: 'teman3.jpg', quote: 'Friendship isn’t about who you’ve known the longest, it’s about who walked into your life and never left.', radius: 9 },
+  { texture: '/venus.jpg', name: 'planet4', image: 'teman4.webp', quote: 'Good friends are like stars—you don’t always see them, but you know they’re always there.', radius: 11 }
 ];
 
 function init() {
