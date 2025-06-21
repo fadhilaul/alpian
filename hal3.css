@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #0d0d2b 0%, #05010f 100%);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+/* Bintang */
+#stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+  text-align: center;
+}
+
+video {
+  width: 300px;
+  border-radius: 12px;
+  margin-top: 40px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+  z-index: 2;
+}
+
+/* Container video dan gambar samping */
+.video-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Gambar kiri dan kanan */
+.side-img {
+  width: 250px;
+  height: 450px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 4s ease, visibility 4s ease;
+}
+
+/* Gambar muncul */
+.show-image {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Video ukuran TikTok */
+.video-box {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.hidden-image {
+  opacity: 0;
+  visibility: hidden;
+  transition: visible !important;
+}
+
+/* Tombol */
+.button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 1.2em;
+  background-color: #0044cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0044cc;
+  transition: 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.button:hover {
+  background-color: #3366ff;
+  box-shadow: 0 0 15px #3366ff;
+}
+
+.button.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.video-box,
+.side-img {
+  transition: transform 0.5s ease;
+}
+
+.active {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.shrink {
+  transform: scale(0.8);
+  opacity: 0.6;
+}
