@@ -133,23 +133,6 @@ video {
   opacity: 0.6;
 }
 
-@media screen and (max-width: 768px) {
-  .responsive-wrapper {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .video-box {
-    width: 90vw;
-    max-width: 100%;
-  }
-
-  .side-img {
-    width: 80vw;
-    height: auto;
-    max-height: 60vh;
-  }
-
   .button {
     font-size: 1em;
     padding: 10px 20px;
