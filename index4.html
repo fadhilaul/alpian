@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman 4 - Planet Realistis</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Tambahan agar canvas di belakang dan popup bisa tampil di atas */
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+      font-family: sans-serif;
+    }
+
+    #starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    #popup {
+      z-index: 10;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+    }
+
+    #planet-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  </style>
+
+  <!-- Three.js + OrbitControls -->
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+    import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+    window.THREE = THREE;
+    window.OrbitControls = OrbitControls;
+  </script>
+</head>
+<body>
+
+  <!-- Musik -->
+  <audio autoplay loop>
+    <source src="one.mp3.m4a" type="audio/mpeg">
+  </audio>
+
+  <!-- Latar Bintang -->
+  <canvas id="starfield"></canvas>
+
+  <!-- Container Planet -->
+  <div id="planet-container"></div>
+
+  <!-- Popup Cantik -->
+<div id="popup" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 24px;
+  border-radius: 16px;
+  color: white;
+  max-width: 90vw;
+  max-height: 90vh;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+  text-align: center;
+  overflow: auto;
+">
+
+  <img id="popupImage" src="" style="
+    width: 100%;
+    max-width: 480px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    object-fit: cover;
+    box-shadow: 0 0 12px rgba(255,255,255,0.1);
+  " />
+
+  <p id="popupQuote" style="
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.5;
+    padding: 0 10px;
+  "></p>
+
+</div>
+
+
+  <!-- JS Module (Urutan penting: shader -> background -> planet) -->
+  <script type="module" src="shader.js"></script>
+  <script type="module" src="background.js"></script>
+  <script type="module" src="planet.js"></script>
+
+</body>
+</html>

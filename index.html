@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman 1</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      overflow: hidden;
+    }
+ 
+    .ball {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+
+    .button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      color: black;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 20px 30px;
+      border-radius: 50%;
+      box-shadow: 0 0 30px white;
+      text-decoration: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    .button.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="hal2.html" class="button" id="youButton">You</a>
+
+  <script>
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const balls = [];
+    const numBalls = 12;
+    const radiusStart = 200;
+    let radius = radiusStart;
+    let angleOffset = 0;
+
+    for (let i = 0; i < numBalls; i++) {
+      const ball = document.createElement("div");
+      ball.classList.add("ball");
+      document.body.appendChild(ball);
+      balls.push(ball);
+    }
+
+    function animate() {
+      angleOffset += 0.02;
+      radius *= 0.98; // makin lama radius makin kecil
+
+      balls.forEach((ball, i) => {
+        const angle = (i / numBalls) * (2 * Math.PI) + angleOffset;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        ball.style.left = `${x}px`;
+        ball.style.top = `${y}px`;
+      });
+
+      if (radius > 10) {
+        requestAnimationFrame(animate);
+      } else {
+        showButton();
+      }
+    }
+
+    function showButton() {
+      const button = document.getElementById("youButton");
+      button.classList.add("show");
+
+      // hilangkan bola setelah tombol muncul
+      balls.forEach(ball => ball.remove());
+    }
+
+    animate();
+  </script>
+
+</body>
+</html>

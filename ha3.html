@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman 3</title>
+  <link rel="stylesheet" href="hal3.css">
+</head>
+<body>
+  <!-- Kontainer bintang -->
+  <div id="stars-container"></div>
+
+  <!-- Musik latar -->
+  <audio id="bgSound" autoplay loop>
+    <source src="background-music.mp3.mp4" type="audio/mp3">
+  </audio>
+
+  <!-- Konten utama -->
+  <div class="content">
+  <div class="video-wrapper">
+    <img id="leftImage" src="gambarkiri.jpg.jpg" alt="Foto Kiri" class="side-img hidden-image" />
+    
+    <video id="birthdayVideo" controls class="video-box">
+      <source src="vidio.mp4.mp4" type="video/mp4" />
+    </video>
+    
+    <img id="rightImage" src="gambarkanan.jpg.jpg" alt="Foto Kanan" class="side-img hidden-image" />
+  </div>
+
+    <!-- Tombol "Lagi?" muncul setelah video selesai -->
+    <a href="index4.html">
+      <button id="nextButton" class="button hidden">Lagi?</button>
+    </a>
+  </div>
+
+  <script src="hal3.js"></script>
+</body>
+</html>
